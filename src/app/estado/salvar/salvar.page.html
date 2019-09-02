@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro Estado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input name="nome" [(ngModel)]="estado.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Sigla</ion-label>
+    <ion-input name="sigla" [(ngModel)]="estado.sigla"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="estado.status">
+      <ion-list-header>Status</ion-list-header>
+
+      <ion-item>
+        <ion-label>ATIVO</ion-label>
+        <ion-radio value="A"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>INATIVO</ion-label>
+        <ion-radio value="I"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button expand="full" shape="round" (click)="salvar()">salvar</ion-button>
+</ion-content>

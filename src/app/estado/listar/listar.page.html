@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Estados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let estado of listaEstado | async">
+      <ion-label>{{ estado.nome }}</ion-label>
+      <ion-label>{{ estado.sigla }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <h2>Filtro</h2>
+
+  <ion-item>
+    <ion-label position="floating">Escolha um filtro</ion-label>
+    <ion-select [(ngModel)]="nome" (ionChange)="filterExact('nome', nome)">
+      <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado.nome" >{{estado.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button *ngIf="estado" (click)="removeFilter('estado')">Remove filtro</ion-button>
+
+  <ion-item>
+    <ion-label position="floating">Digite o filtro</ion-label>
+    <ion-input type="text" [(ngModel)]="nome" (change)="filterGreaterThan('nome', nome)"></ion-input>
+  </ion-item>
+  <ion-button *ngIf="nome" (click)="removeFilter('nome')">Remove filter</ion-button>
+
+  <h4>Endangered Species</h4>
+  <ion-checkbox [(ngModel)]="nome" (ionChange)="filterBoolean('status', true)">Ativo</ion-checkbox>
+
+  <div >
+    <ion-list>
+      <ion-item *ngFor="let e of filtroEstado">
+        <ion-label>{{e.nome}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

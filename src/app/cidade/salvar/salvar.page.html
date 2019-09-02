@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro Cidade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input name="nome" [(ngModel)]="cidade.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Estado</ion-label>
+    <ion-select [(ngModel)]="cidade.estado">
+      <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado" >{{estado.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="cidade.status">
+      <ion-list-header>Status</ion-list-header>
+
+      <ion-item>
+        <ion-label>ATIVO</ion-label>
+        <ion-radio value="A"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>INATIVO</ion-label>
+        <ion-radio value="I"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button expand="full" shape="round" (click)="salvar()">salvar</ion-button>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Cidades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="valor" (ionChange)="filtrar()"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let cidade of listaFiltro">
+      <ion-label>{{ cidade.nome }}</ion-label>
+      <ion-button (click)="excluir(cidade.key)"><ion-icon name="close-circle"></ion-icon></ion-button>
+      <ion-button (click)="alterar(cidade.key)"><ion-icon name="create"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

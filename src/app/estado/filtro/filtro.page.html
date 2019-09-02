@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Consulta Estado com Filtro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Filtro Nome - combobox</h2>
+  <ion-item>
+    <ion-label position="floating">Escolha um filtro</ion-label>
+    <ion-select [(ngModel)]="nome" (ionChange)="filtrar('nome', nome)">
+      <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado.nome" >{{estado.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button *ngIf="estado" (click)="removeFilter('nome')">Remove filtro</ion-button>
+
+  <h2>Filtro Sigla - campo texto</h2>
+  <ion-item>
+    <ion-label position="floating">Digite o filtro</ion-label>
+    <ion-input type="text" [(ngModel)]="sigla" (change)="filtrar('sigla', sigla)"></ion-input>
+  </ion-item>
+  <ion-button *ngIf="qtdeCidade" (click)="removeFilter('sigla')">Remove filter</ion-button>
+
+  <h2>Filtro Status - checkBox</h2>
+  <ion-checkbox [(ngModel)]="status" (ionChange)="filtroStatus('status', true)">Ativo</ion-checkbox>
+
+  <div >
+    <ion-list>
+      <ion-item *ngFor="let e of filtroEstado">
+        <ion-label>{{e.nome}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

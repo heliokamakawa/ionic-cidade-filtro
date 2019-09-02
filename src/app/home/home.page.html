@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Estado</ion-label>
+      <ion-select [(ngModel)]="acao" (ionChange)="acessar()">
+        <ion-select-option value="estado-salvar" >SALVAR</ion-select-option>
+        <ion-select-option value="estado-listar" >LISTAR</ion-select-option>
+        <ion-select-option value="estado-filtro" >FILTRAR</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cidade</ion-label>
+      <ion-select [(ngModel)]="acao" (ionChange)="acessar()">
+        <ion-select-option value="cidade-salvar" >SALVAR</ion-select-option>
+        <ion-select-option value="cidade-listar" >LISTAR</ion-select-option>
+        <ion-select-option value="cidade-filtro" >FILTRAR</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-content>
